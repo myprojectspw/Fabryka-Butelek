@@ -4,6 +4,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class App {
+        //Glowna klasa
         public static void main(String[] args) {
             Skrzynka skrzynka = new Skrzynka();
 
