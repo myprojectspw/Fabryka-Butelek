@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Fabryka-Butelek" />
+        <module name="demo.watek" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Fabryka-Butelek" target="6" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,3 +1,5 @@
+package com.demo.watek;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.locks.Condition;
