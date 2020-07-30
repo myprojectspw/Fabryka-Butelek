@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -6,23 +7,41 @@ import java.util.concurrent.locks.ReentrantLock;
 public class App {
         //Glowna klasa
         public static void main(String[] args) {
-            Skrzynka skrzynka = new Skrzynka();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("What operation? ");
+            System.out.println("1 - Start machine system of creating buttles ");
+            System.out.println("2 - Claendar with cucamber tests ");
+            int k = scanner.nextInt();
+            switch(k)
+            {
+                case 1:
+                    startMachineCreatingPetButtles();
+                    break;
+                case 2:
+                    System.out.println("Calendar system");
+                    break;
+            }
 
-            Lock lock = new ReentrantLock();
-            Condition oczekiwanie = lock.newCondition();
-
-            MaszynaProdukujacaButelki maszyna1 = new MaszynaProdukujacaButelki(skrzynka, lock, oczekiwanie);
-            MaszynaZmieniajacaButelki maszyna2 = new MaszynaZmieniajacaButelki(skrzynka, lock, oczekiwanie);
-
-            Thread produkcja = new Thread(maszyna1, "producent");
-            Thread zmieniasz = new Thread(maszyna2, "zmieniasz");
-
-            produkcja.start();
-            zmieniasz.start();
         }
-    }
 
-    class MaszynaZmieniajacaButelki implements Runnable {
+
+    public static void startMachineCreatingPetButtles() {
+        Skrzynka skrzynka = new Skrzynka();
+
+        Lock lock = new ReentrantLock();
+        Condition oczekiwanie = lock.newCondition();
+
+        MaszynaProdukujacaButelki maszyna1 = new MaszynaProdukujacaButelki(skrzynka, lock, oczekiwanie);
+        MaszynaZmieniajacaButelki maszyna2 = new MaszynaZmieniajacaButelki(skrzynka, lock, oczekiwanie);
+
+        Thread produkcja = new Thread(maszyna1, "producent");
+        Thread zmieniasz = new Thread(maszyna2, "zmieniasz");
+
+        produkcja.start();
+        zmieniasz.start();
+    }
+}
+class MaszynaZmieniajacaButelki implements Runnable {
 
         Skrzynka skrzynka;
         private Lock lock;
