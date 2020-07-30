@@ -1,4 +1,4 @@
-package javas.com.demo.watek;
+package com.demo.watek;
 
 import org.junit.Test;
 

@@ -20,11 +20,23 @@ public class App {
                     startMachineCreatingPetButtles();
                     break;
                 case 2:
-                    System.out.println("Calendar system");
+                    System.out.println("Fizz Buzz system, eneter number 0, 3, 5");
+                    int l = scanner.nextInt();
+                    try
+                    {
+                        System.out.println(new FizzBuzz().play(l));
+                    }
+                    catch (IllegalAccessException e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
                     break;
             }
 
         }
+
+
+
 
 
     public static void startMachineCreatingPetButtles() {
